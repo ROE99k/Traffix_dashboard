@@ -1,54 +1,33 @@
 type Props = {
   direction: "north" | "south" | "east" | "west";
-  isActive: boolean;
+  isGreen: boolean;
 };
 
-export function CameraFeed({ direction, isActive }: Props) {
+export function CameraFeed({ direction, isGreen }: Props) {
   const videoSrc = `/videos/${direction}.mp4`;
 
   return (
-    <div className="bg-muted rounded-md p-4 flex flex-col items-center justify-center">
-      <div className="text-sm font-semibold mb-2">
-        {direction.charAt(0).toUpperCase() + direction.slice(1)}
-      </div>
-      <div className="bg-slate-100 w-full h-36 flex flex-col items-center justify-center rounded">
+    <div
+      className={`rounded-md p-4 flex flex-col items-center justify-center transition-shadow ${
+        isGreen
+          ? "border-4 border-green-500 shadow-lg shadow-green-200 bg-green-50"
+          : "bg-muted"
+      }`}
+    >
+      {/* Direction label */}
+      <div className="text-base font-semibold mb-2 capitalize">{direction}</div>
+
+      {/* Video container */}
+      <div className="w-full aspect-video bg-slate-100 rounded overflow-hidden">
         <video
           src={videoSrc}
           controls
           autoPlay
           loop
           muted
-          className="w-full h-full rounded"
+          className="w-full h-full object-cover"
         />
-        <div className="text-sm text-muted-foreground mt-2">
-          {isActive ? "Live Feed" : "Standby"}
-        </div>
       </div>
-    </div>
-  );
-}
-
-export function AllDirections() {
-  const directions: ("north" | "south" | "east" | "west")[] = [
-    "north",
-    "south",
-    "east",
-    "west",
-  ];
-
-  // You can control which directions are active here:
-  const activeStatus = {
-    north: true,
-    south: false,
-    east: true,
-    west: false,
-  };
-
-  return (
-    <div className="grid grid-cols-2 gap-4">
-      {directions.map((dir) => (
-        <CameraFeed key={dir} direction={dir} isActive={activeStatus[dir]} />
-      ))}
     </div>
   );
 }
