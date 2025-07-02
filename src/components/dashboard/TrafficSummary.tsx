@@ -15,7 +15,7 @@ const labelColor = (data: any) => {
 };
 
 export function TrafficSummary() {
-  const { currentTrafficData } = useTrafficData(); // updated to use destructured currentTrafficData
+  const { currentTrafficData } = useTrafficData();
   const directions = ["North", "South", "East", "West"];
 
   return (
@@ -30,10 +30,7 @@ export function TrafficSummary() {
               <h3 className={`mt-2 font-semibold text-lg uppercase ${labelColor(data)}`}>{dir}</h3>
             </card.CardHeader>
             <card.CardContent className="space-y-1 text-sm text-muted-foreground">
-              <div className="flex items-center justify-center gap-2">
-                <FaCarSide />
-                <span>{data?.vehicles ?? "—"} vehicles</span>
-              </div>
+              {/* Vehicle count removed */}
               <div className="flex items-center justify-center gap-2">
                 <FaClock />
                 <span>Wait: {data?.wait_time ?? "—"}s</span>

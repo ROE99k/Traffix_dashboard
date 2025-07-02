@@ -8,7 +8,7 @@ import { Footer } from "@/components/layout/Footer";
 
 const Index = () => {
   const currentGreen = "north";
-  const directions = ["north", "south", "east", "west"];
+  const directions: Array<"north" | "south" | "east" | "west"> = ["north", "south", "east", "west"];
 
   return (
     <MobileLayout>

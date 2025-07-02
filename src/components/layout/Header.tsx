@@ -1,4 +1,3 @@
-
 import { Badge } from "@/components/ui/badge";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Button } from "@/components/ui/button";
@@ -19,7 +18,9 @@ export function Header() {
           </div>
           <div>
             <h1 className="text-lg font-bold text-foreground">Traffix</h1>
-            <p className="text-xs text-muted-foreground hidden sm:block">Traffic Control System</p>
+            <p className="text-xs text-muted-foreground hidden sm:block">
+              Traffic Control System
+            </p>
           </div>
         </div>
         <div className="flex items-center space-x-2">
@@ -40,7 +41,10 @@ export function Header() {
           >
             <Download className="w-4 h-4" />
           </Button>
-          <Badge variant="outline" className="border-emerald-400 text-emerald-400 hidden sm:flex">
+          <Badge
+            variant="outline"
+            className="border-emerald-400 text-emerald-400 hidden sm:flex"
+          >
             <div className="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></div>
             Active
           </Badge>
